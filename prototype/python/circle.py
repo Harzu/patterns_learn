@@ -1,4 +1,3 @@
-from copy import copy
 from shape import Shape
 from math import pow, pi
 
@@ -7,14 +6,19 @@ class Circle(Shape):
   
   def __init__(self, params = None):
     if params is not None:
-      self.radius = params.radius
+      self.radius = params['radius']
     pass
   
   def square(self):
     return pi * pow(self.radius, 2)
 
   def clone(self):
-    return copy(self)
+    return Circle({
+      'x': self.x,
+      'y': self.y,
+      'color': self.color,
+      'radius': self.radius
+    })
 
   def equals(self, targetObject):
     if targetObject.radius != self.radius:

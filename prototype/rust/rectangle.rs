@@ -64,7 +64,11 @@ impl RectangleTrait for Rectangle {
 
 impl ShapeTrait for Rectangle {
   fn clone_instance(&self) -> Self {
-    self.clone()
+    Rectangle {
+      shape: Shape { x: self.shape.x, y: self.shape.y, color: self.shape.color.clone() },
+      width: self.width,
+      height: self.height
+    }
   }
 
   fn set_x(&mut self, x: i32) {

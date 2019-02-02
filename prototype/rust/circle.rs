@@ -60,7 +60,10 @@ impl CircleTrait for Circle {
 
 impl ShapeTrait for Circle {
   fn clone_instance(&self) -> Self {
-    self.clone()
+    Circle {
+      shape: Shape { x: self.shape.x, y: self.shape.y, color: self.shape.color.clone() },
+      radius: self.radius
+    }
   }
 
   fn set_x(&mut self, x: i32) {

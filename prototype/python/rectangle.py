@@ -1,4 +1,3 @@
-from copy import copy
 from shape import Shape
 
 class Rectangle(Shape):
@@ -7,12 +6,18 @@ class Rectangle(Shape):
 
   def __init__(self, params = None):
     if params is not None:
-      self.width = params.width
-      self.height = params.height
+      self.width = params['width']
+      self.height = params['height']
     pass
 
   def clone(self):
-    return copy(self)
+    return Rectangle({
+      'x': self.x,
+      'y': self.y,
+      'color': self.color,
+      'width': self.width,
+      'height': self.height
+    })
   
   def square(self):
     return self.width * self.height
