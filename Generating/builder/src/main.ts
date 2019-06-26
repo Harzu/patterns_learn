@@ -7,4 +7,4 @@ const newContact = builder
   .setPhoneNumber('+7 999 872 82 82')
   .finally()
 
-newContact.phoneCall()
+newContact.call()
